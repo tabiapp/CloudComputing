@@ -224,7 +224,7 @@ GET https://tabiapp-65059410484.asia-southeast2.run.app/api/regions/Bali/manners
 
 #### Fetch Places of a Region
 ```bash
-GET https://tabiapp-65059410484.asia-southeast2.run.app/api/regions/Sumatra/places
+GET https://tabiapp-65059410484.asia-southeast2.run.app/api/regions/Semarang/places
 ```
 
 #### Fetch Foods of a Region
