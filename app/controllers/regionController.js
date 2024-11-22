@@ -1,21 +1,27 @@
 const regionService = require("../services/regionService");
 
 /**
- * Mengembalikan daftar semua region.
+ * Returns a list of all regions.
  * @param {Object} req - Request object.
  * @param {Object} res - Response object.
  */
 const getRegions = async (req, res) => {
   try {
     const regions = await regionService.getAllRegions();
-    res.status(200).json({ regions });
+    return res.status(200).json({
+      success: true,
+      message: regions
+    });
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch regions.", error });
+    return res.status(500).json({ 
+      success: false,
+      message: "Failed to fetch regions.", error 
+    });
   }
 };
 
 /**
- * Mengembalikan detail region berdasarkan nama.
+ * Returns region details by name.
  * @param {Object} req - Request object.
  * @param {Object} res - Response object.
  */
@@ -26,17 +32,26 @@ const getRegionDetail = async (req, res) => {
     const region = await regionService.getRegionByName(regionName);
 
     if (region) {
-      res.status(200).json(region);
+      return res.status(200).json({
+        success: true,
+        message: region
+      });
     } else {
-      res.status(404).json({ message: `Region '${regionName}' not found.` });
+      return res.status(404).json({
+        success: false,
+        message: `Region '${regionName}' not found.`
+      });
     }
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch region detail.", error });
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch region detail.", error
+    });
   }
 };
 
 /**
- * Mendapatkan manners dari region.
+ * Getting manners from the region.
  */
 const getRegionManners = async (req, res) => {
   const { regionName } = req.params;
@@ -44,17 +59,26 @@ const getRegionManners = async (req, res) => {
   try {
     const manners = await regionService.getMannersByRegionName(regionName);
     if (manners) {
-      res.status(200).json({ manners });
+      return res.status(200).json({
+        success: true,
+        message: manners
+      });
     } else {
-      res.status(404).json({ message: `Region '${regionName}' not found.` });
+      return res.status(404).json({
+        success: false,
+        message: `Region '${regionName}' not found.`
+      });
     }
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch manners.", error });
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch manners.", error
+    });
   }
 };
 
 /**
- * Mendapatkan places dari region.
+ * Get places from the region.
  */
 const getRegionPlaces = async (req, res) => {
   const { regionName } = req.params;
@@ -62,17 +86,26 @@ const getRegionPlaces = async (req, res) => {
   try {
     const places = await regionService.getPlacesByRegionName(regionName);
     if (places) {
-      res.status(200).json({ places });
+      return res.status(200).json({
+        success: true,
+        message: places
+      });
     } else {
-      res.status(404).json({ message: `Region '${regionName}' not found.` });
+      return res.status(404).json({
+        success: false,
+        message: `Region '${regionName}' not found.`
+      });
     }
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch places.", error });
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch places.", error
+    });
   }
 };
 
 /**
- * Mendapatkan foods dari region.
+ * Get foods from the region.
  */
 const getRegionFoods = async (req, res) => {
   const { regionName } = req.params;
@@ -80,12 +113,18 @@ const getRegionFoods = async (req, res) => {
   try {
     const foods = await regionService.getFoodsByRegionName(regionName);
     if (foods) {
-      res.status(200).json({ foods });
+      return res.status(200).json({
+        success: true,
+        foods });
     } else {
-      res.status(404).json({ message: `Region '${regionName}' not found.` });
+      return res.status(404).json({
+        success: false,
+        message: `Region '${regionName}' not found.`
+      });
     }
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch foods.", error });
+    return res.status(500).json({success: false,
+      message: "Failed to fetch foods.", error });
   }
 };
 

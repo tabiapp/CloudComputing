@@ -1,8 +1,8 @@
 const db = require("../utils/firebase");
 
 /**
- * Mengambil semua regions dari Firestore.
- * @returns {Promise<Array>} Daftar region.
+ * Retrieve all regions from Firestore.
+ * @returns {Promise<Array>} List region.
  */
 const getAllRegions = async () => {
   const regionsSnapshot = await db.collection("regions").get();
@@ -15,9 +15,9 @@ const getAllRegions = async () => {
 };
 
 /**
- * Mengambil detail region berdasarkan nama dari Firestore.
- * @param {string} regionName - Nama region.
- * @returns {Promise<Object|null>} Detail region atau null jika tidak ditemukan.
+ * Retrieve region details based on the name of the Firestore.
+ * @param {string} regionName - Name region.
+ * @returns {Promise<Object|null>} Detail region or null if not found.
  */
 const getRegionByName = async (regionName) => {
   const regionSnapshot = await db
@@ -31,7 +31,7 @@ const getRegionByName = async (regionName) => {
 
   const regionData = regionSnapshot.docs[0].data();
 
-  // Ambil subcollections (foods dan places)
+  // Get subcollections (foods dan places)
   const foodsSnapshot = await db
     .collection("regions")
     .doc(regionSnapshot.docs[0].id)
@@ -52,9 +52,9 @@ const getRegionByName = async (regionName) => {
 
 
 /**
- * Mengambil manners berdasarkan nama region.
- * @param {string} regionName - Nama region.
- * @returns {Promise<string|null>} Manners atau null jika tidak ditemukan.
+ * Retrieve manners based on the region name.
+ * @param {string} regionName - Name region.
+ * @returns {Promise<string|null>} Manners or null if not found.
  */
 const getMannersByRegionName = async (regionName) => {
   const regionSnapshot = await db
@@ -68,9 +68,9 @@ const getMannersByRegionName = async (regionName) => {
 };
 
 /**
- * Mengambil places berdasarkan nama region.
- * @param {string} regionName - Nama region.
- * @returns {Promise<Array|null>} Daftar places atau null jika region tidak ditemukan.
+ * Retrieve places based on the region name.
+ * @param {string} regionName - Namw region.
+ * @returns {Promise<Array|null>} List places or null if not found.
  */
 const getPlacesByRegionName = async (regionName) => {
   const regionSnapshot = await db
@@ -90,9 +90,9 @@ const getPlacesByRegionName = async (regionName) => {
 };
 
 /**
- * Mengambil foods berdasarkan nama region.
- * @param {string} regionName - Nama region.
- * @returns {Promise<Array|null>} Daftar foods atau null jika region tidak ditemukan.
+ * Retrieve foods based on the region name.
+ * @param {string} regionName - Name region.
+ * @returns {Promise<Array|null>} List of foods or null if region is not found.
  */
 const getFoodsByRegionName = async (regionName) => {
   const regionSnapshot = await db
