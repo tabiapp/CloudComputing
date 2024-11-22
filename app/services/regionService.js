@@ -54,8 +54,9 @@ const getRegionByName = async (regionName) => {
 /**
  * Retrieve manners based on the region name.
  * @param {string} regionName - Name region.
- * @returns {Promise<string|null>} Manners or null if not found.
+ * @returns {Promise<Array|null>} Manners or null if not found.
  */
+
 const getMannersByRegionName = async (regionName) => {
   const regionSnapshot = await db
     .collection("regions")
@@ -64,7 +65,13 @@ const getMannersByRegionName = async (regionName) => {
 
   if (regionSnapshot.empty) return null;
 
-  return regionSnapshot.docs[0].data().manners || null;
+  const placesSnapshot = await db
+    .collection("regions")
+    .doc(regionSnapshot.docs[0].id)
+    .collection("manners")
+    .get();
+
+  return placesSnapshot.docs.map((doc) => doc.data());
 };
 
 /**

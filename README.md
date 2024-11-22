@@ -114,7 +114,7 @@ Fetches manners or traditions related to the specified region.
   ```json
   {
     "success": true,
-    "message": [/* Array of manners */]
+    "message": [/* Array of places */]
   }
   ```
 - **404 Not Found**  
