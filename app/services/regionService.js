@@ -32,6 +32,11 @@ const getRegionByName = async (regionName) => {
   const regionData = regionSnapshot.docs[0].data();
 
   // Get subcollections (foods dan places)
+  const mannersSnapshot = await db
+    .collection("regions")
+    .doc(regionSnapshot.docs[0].id)
+    .collection("manners")
+    .get();
   const foodsSnapshot = await db
     .collection("regions")
     .doc(regionSnapshot.docs[0].id)
@@ -44,10 +49,11 @@ const getRegionByName = async (regionName) => {
     .collection("places")
     .get();
 
+  const manners = mannersSnapshot.docs.map((doc) => doc.data());
   const foods = foodsSnapshot.docs.map((doc) => doc.data());
   const places = placesSnapshot.docs.map((doc) => doc.data());
 
-  return { ...regionData, foods, places };
+  return { ...regionData, manners, foods, places };
 };
 
 
