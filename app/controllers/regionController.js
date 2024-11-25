@@ -115,7 +115,8 @@ const getRegionFoods = async (req, res) => {
     if (foods) {
       return res.status(200).json({
         success: true,
-        foods });
+        message: foods
+      });
     } else {
       return res.status(404).json({
         success: false,

@@ -23,20 +23,6 @@ project-folder/
 **Base URL:**  
 `https://tabiapp-65059410484.asia-southeast2.run.app/api`
 
----
-
-### Style Guide
-
-- All endpoints use RESTful conventions.
-- Responses are formatted as JSON.
-- All timestamps are in ISO 8601 format.
-- Use proper HTTP status codes:
-  - **200**: Success.
-  - **201**: Resource created.
-  - **404**: Resource not found.
-  - **500**: Internal server error.
-
----
 
 ### Endpoints
 
@@ -114,7 +100,7 @@ Fetches manners or traditions related to the specified region.
   ```json
   {
     "success": true,
-    "message": [/* Array of places */]
+    "message": [/* Array of manners */]
   }
   ```
 - **404 Not Found**  
