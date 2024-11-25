@@ -170,7 +170,7 @@ Fetches popular foods from the specified region.
   ```json
   {
     "success": true,
-    "foods": [/* Array of foods */]
+    "message": [/* Array of foods */]
   }
   ```
 - **404 Not Found**  
