@@ -1,4 +1,8 @@
-## Structure Folder
+### Architecture Cloud
+![](assets/TABI-Architecture-Cloud.drawio.png)
+
+---
+### Structure Folder
 ```
 project-folder/
 ├── app/
