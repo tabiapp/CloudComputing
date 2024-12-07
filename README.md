@@ -4,7 +4,7 @@
 ---
 ### Structure Folder
 ```
-project-folder/
+CloudComputing/
 ├── app/
 │   ├── controllers/
 │   │   ├── regionController.js
