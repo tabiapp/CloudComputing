@@ -1,5 +1,5 @@
 ### Architecture Cloud
-![](assets/TABI-Architecture-Cloud.drawio.png)
+![](assets/TABI_Architecture_Cloud.png)
 
 ---
 ### Structure Folder
