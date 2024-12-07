@@ -20,8 +20,7 @@ CloudComputing/
 ├── cloudbuild.yaml
 ├── .gitignore
 ```
-
-
+---
 ### API Specification for TabiApp
 
 **Base URL:**  
