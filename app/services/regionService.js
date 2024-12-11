@@ -10,6 +10,7 @@ const getAllRegions = async () => {
     id: doc.id,
     name: doc.data().name,
     thumbnailImg: doc.data().thumbnailImg,
+    iconCity: doc.data().iconCity,
   }));
   return regions;
 };
