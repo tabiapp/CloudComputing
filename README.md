@@ -1,6 +1,6 @@
 ### Architecture Cloud
 ![](assets/TABI_Architecture_Cloud.png)
-
+The cloud architecture of the TABI app integrates several Google Cloud services to deliver efficient and scalable functionality. Android users interact with the app, which routes requests to the backend hosted on Cloud Run (Express). The backend retrieves data from Firestore and stores large assets in Cloud Storage. Machine learning workflows, hosted on Cloud Run (Flask), utilize models and tokenizers stored in Cloud Storage. Continuous Integration and Deployment (CI/CD) is managed through Cloud Build and Git repositories, enabling seamless development and deployment processes. This architecture ensures scalability, reliability, and optimal performance.
 
 ---
 ### Structure Folder
